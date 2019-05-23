@@ -1,17 +1,25 @@
 package creational.builder;
 
-import creational.builder.house.House;
+import creational.builder.houseInterface.BigHouseBuilder;
+import creational.builder.houseInterface.House;
+import creational.builder.houseInterface.HouseDirector;
+import creational.builder.houseInterface.SmallHouseBuilder;
 
 public class Main {
     public static void main(String[] args) {
-        House house = new House.HouseBuilder()
-                .buildWalls("walls")
-                .buildFloors("floors")
-                .buildRoof("roof")
-                .buildRooms("kitchen")
-                .build();
+        SmallHouseBuilder smallHouseBuilder = new SmallHouseBuilder();
+        BigHouseBuilder bigHouseBuilder = new BigHouseBuilder();
 
-        System.out.println(house);
+        HouseDirector smallHouseDirector = new HouseDirector(smallHouseBuilder);
+        smallHouseDirector.buildHouse();
+        HouseDirector bigHouseDirector = new HouseDirector(bigHouseBuilder);
+        bigHouseDirector.buildHouse();
+
+        House smallHouse = smallHouseDirector.getHouse();
+        House bigHouse = bigHouseDirector.getHouse();
+
+        System.out.println(smallHouse);
+        System.out.println(bigHouse);
     }
 }
 
