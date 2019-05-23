@@ -14,10 +14,16 @@ public class Main {
         MobileApp mobileApp = new MobileApp();
         Email email = new Email();
 
-        textMessage.updateOrderStatus(order);
-        mobileApp.updateOrderStatus(order);
-        email.updateOrderStatus(order);
+        order.registerObserver(textMessage);
+        order.registerObserver(mobileApp);
+        order.registerObserver(email);
 
+        order.notifyObserver(); //wypisze wszystkie wiadomości
+        order.changeOrderStatus(OrderStatus.SENT); //zmiana statusu zamowienia
+        //==========================
+        order.unregisterObserver(email);
+        order.changeOrderStatus(OrderStatus.RECEIVED);
     }
 }
+
 
