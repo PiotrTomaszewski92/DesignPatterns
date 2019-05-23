@@ -1,6 +1,10 @@
 package creational.singleton;
 
-public class GameEngine {
+import java.io.Serializable;
+
+public class GameEngine implements Serializable {
+
+    private static final long serialVersionUID = 23232323;
 
     private int hp=100;
     private String characterName = "";
@@ -19,6 +23,10 @@ public class GameEngine {
             //zmieniamy stan gry
             //renderujemy grafikę
         }
+    }
+
+    protected Object readResolve(){
+        return getInstance();
     }
 }
 
