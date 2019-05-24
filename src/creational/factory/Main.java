@@ -1,13 +1,18 @@
 package creational.factory;
 
-import creational.factory.units.Unit;
-import creational.factory.units.UnitFactory;
-import creational.factory.units.UnitType;
+
+import creational.factory.units.*;
 
 public class Main {
+    public static void main(String[] args) {
+        Factory blueFactory = new BlueFactory();
+        Factory redFactory = new RedFactory();
 
-    UnitFactory unitFactory = new UnitFactory();
-    Unit tank = unitFactory.createUnit(UnitType.TANK);
-    Unit rifleman = unitFactory.createUnit(UnitType.RIFLEMAN);
+        MechanizedUnit redTank = redFactory.createMechanizedUnit(UnitType.TANK);
+        InfantryUnit redInfantry = redFactory.createInfantryUnit(UnitType.RIFLEMAN);
 
+        MechanizedUnit blueTank = blueFactory.createMechanizedUnit(UnitType.TANK);
+        InfantryUnit blueInfantry = blueFactory.createInfantryUnit(UnitType.RIFLEMAN);
+    }
 }
+
