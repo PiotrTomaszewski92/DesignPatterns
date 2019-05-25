@@ -19,6 +19,9 @@ public class Main {
         };
         UKSocket ukSocket = new UKSocket();
         ukSocket.plugIn(englishRadio);
+
+        UKToContinentalAdapter adapter = new UKToContinentalAdapter(englishRadio);
+        continentalSocket.plugIn(adapter);
     }
 }
 
