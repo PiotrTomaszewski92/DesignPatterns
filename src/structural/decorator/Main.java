@@ -7,10 +7,13 @@ public class Main {
 
     private static void generateMap() {
         Terrain terrain = new Plain();
-        Terrain terrain1 = new ForestHill();
+        Terrain terrain1 = new Hill();
 
-        Terrain terrain2 = new SwampPlain();
-        Terrain terrain3 = new SwampForestPlain();
+        Terrain terrain2 = new SwampDecorator(new Hill());
+        System.out.println("cost: "+terrain2.fuelCost());
+
+        Terrain terrain3 = new SwampDecorator(new ForestDecorator(new Plain()));
+        System.out.println("cost: "+terrain3.fuelCost());
     }
 }
 
