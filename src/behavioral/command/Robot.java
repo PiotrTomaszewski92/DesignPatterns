@@ -1,17 +1,16 @@
 package behavioral.command;
 
-public class Robot {
-
-    public void turnOn(){
+class Robot {
+    void turnOn(){
         System.out.println("Robot's working.");
     }
-    public void cut(){
+    void cut(){
         System.out.println("Cutting");
     }
-    public void drill(){
+    void drill(){
         System.out.println("Drilling");
     }
-    public void turnOff(){
+    void turnOff(){
         System.out.println("Robot's sleeping");
     }
 }
