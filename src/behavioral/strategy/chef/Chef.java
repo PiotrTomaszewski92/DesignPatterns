@@ -1,7 +1,10 @@
 package behavioral.strategy.chef;
 
+import behavioral.strategy.chef.egg_cooker.EggCooker;
+
 public class Chef {
     private String name;
+    private EggCooker eggCooker;
 
     public Chef(String name) {
         this.name = name;
@@ -15,7 +18,15 @@ public class Chef {
     }
 
     public void cook(){
-        System.out.println("Cooking eggs...!");
+        this.eggCooker.cookEgg();
+    }
+
+    public EggCooker getEggCooker() {
+        return eggCooker;
+    }
+
+    public void setEggCooker(EggCooker eggCooker) {
+        this.eggCooker = eggCooker;
     }
 }
 
